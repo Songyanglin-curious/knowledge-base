@@ -2,9 +2,9 @@
 <html lang="zh-CN">
 
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>CSS 选择器速查参考表（带样式隔离）</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CSS 选择器参考表</title>
         <style>
             * {
                 box-sizing: border-box;
@@ -14,111 +14,138 @@
 
             body {
                 font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", sans-serif;
-                line-height: 1.6;
-                padding: 20px;
-                background-color: #f9f9f9;
-                color: #333;
+                line-height: 1.5;
+                padding: 16px;
+                background-color: #f8f9fa;
+                color: #374151;
+                max-width: 900px;
+                margin: 0 auto;
             }
 
             h1 {
                 text-align: center;
-                margin-bottom: 30px;
-                color: #2c3e50;
+                margin-bottom: 20px;
+                color: #1f2937;
+                font-size: 1.5rem;
+                font-weight: 500;
             }
 
             .selector-card {
-                border: 1px solid #e0e0e0;
-                margin: 20px 0;
-                padding: 20px;
-                border-radius: 10px;
+                border: 1px solid #d1d5db;
+                margin: 12px 0;
+                padding: 16px;
                 background: #ffffff;
-                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+                border-radius: 6px;
             }
 
             .selector-header {
                 display: flex;
                 justify-content: space-between;
                 align-items: flex-start;
-                margin-bottom: 12px;
+                margin-bottom: 8px;
                 flex-wrap: wrap;
-                gap: 10px;
+                gap: 8px;
             }
 
             .selector-title {
-                font-size: 18px;
-                font-weight: bold;
-                color: #2c3e50;
+                font-size: 16px;
+                font-weight: 500;
+                color: #1f2937;
             }
 
             .copy-btn {
-                background: #007bff;
-                color: white;
-                border: none;
-                padding: 6px 12px;
-                border-radius: 6px;
+                background: #f3f4f6;
+                color: #4b5563;
+                border: 1px solid #d1d5db;
+                padding: 4px 8px;
+                border-radius: 4px;
                 cursor: pointer;
-                font-size: 14px;
+                font-size: 13px;
                 white-space: nowrap;
-                transition: background 0.2s;
+                transition: all 0.2s;
             }
 
             .copy-btn:hover {
-                background: #0056b3;
+                background: #e5e7eb;
             }
 
             .selector-code {
-                font-family: 'Courier New', monospace;
-                background: #f8f9fa;
-                padding: 8px 12px;
-                border-radius: 6px;
-                margin: 10px 0;
-                font-size: 15px;
-                color: #d63384;
-                border-left: 3px solid #007bff;
+                font-family: 'Consolas', 'Monaco', monospace;
+                background: #f9fafb;
+                padding: 8px 10px;
+                border-radius: 4px;
+                margin: 8px 0;
+                font-size: 14px;
+                color: #059669;
+                border-left: 3px solid #059669;
             }
 
             .selector-desc {
-                margin: 10px 0;
-                color: #555;
+                margin: 8px 0;
+                color: #4b5563;
+                font-size: 14px;
             }
 
             .example-container {
-                padding: 16px;
-                background: #fafafa;
-                border: 1px dashed #ccc;
-                margin: 14px 0;
-                min-height: 50px;
-                border-radius: 6px;
+                padding: 8px;
+                background: #f9fafb;
+                border: 1px solid #e5e7eb;
+                margin: 8px 0;
+                min-height: 40px;
+                border-radius: 4px;
+            }
+
+            .example-container * {
+                border: 1px solid #d1d5db;
+                padding: 4px;
+                margin: 2px 0;
             }
 
             .tags {
-                margin-top: 12px;
+                margin-top: 8px;
             }
 
             .tag {
                 display: inline-block;
-                background: #e0e0e0;
-                color: #555;
-                padding: 4px 10px;
-                border-radius: 20px;
-                font-size: 13px;
-                margin-right: 8px;
-                margin-bottom: 6px;
+                background: #f3f4f6;
+                color: #6b7280;
+                padding: 2px 8px;
+                border-radius: 3px;
+                font-size: 11px;
+                margin-right: 6px;
+                margin-bottom: 4px;
             }
 
             footer {
                 text-align: center;
-                margin-top: 30px;
-                color: #888;
-                font-size: 14px;
+                margin-top: 20px;
+                color: #6b7280;
+                font-size: 13px;
+                padding: 8px;
+            }
+
+            .note {
+                background: #f0f9ff;
+                padding: 10px 12px;
+                border-radius: 4px;
+                margin: 16px 0;
+                font-size: 13px;
+                color: #4b5563;
+                border-left: 3px solid #059669;
             }
         </style>
     </head>
 
     <body>
-        <h1>CSS 选择器速查参考表（带样式隔离）</h1>
+        <h1>CSS 选择器参考表</h1>
+
+        <div class="note">
+            每个选择器的示例都进行了样式隔离，不会互相影响。
+        </div>
+
         <div id="selector-reference-table"></div>
-        <footer>点击“📋 复制选择器”可一键复制 CSS 选择器代码</footer>
+
+        <footer>点击"复制选择器"可一键复制 CSS 选择器代码</footer>
 
         <script>
             const selectors = [
@@ -126,9 +153,11 @@
                     title: "标签选择器",
                     selector: "p",
                     description: "选择所有 <code>&lt;p&gt;</code> 元素",
-                    exampleHTML: '<p>段落1</p><p>段落2</p><div>div1</div><p>段落3</p>',
+                    exampleHTML: `
+                    <p>段落1</p><p>段落2</p><div>div1</div><p>段落3</p>
+                `,
                     tags: ["标签选择器"],
-                    css: "p { color: red; }"
+                    css: "p { color: #fff; background-color: #e74c3c; }"
                 },
                 {
                     title: "类选择器",
@@ -136,7 +165,7 @@
                     description: "选择所有 <code>class=\"highlight\"</code> 的元素",
                     exampleHTML: '<p class="highlight">高亮段落</p><div>普通div</div><span class="highlight">高亮span</span>',
                     tags: ["class"],
-                    css: ".highlight { background-color: yellow; color: #000; padding: 4px; }"
+                    css: ".highlight { background-color: #fef3c7; color: #92400e; }"
                 },
                 {
                     title: "ID 选择器",
@@ -144,7 +173,7 @@
                     description: "选择 <code>id=\"main-title\"</code> 的唯一元素",
                     exampleHTML: '<h1 id="main-title">主标题</h1><p>普通段落</p>',
                     tags: ["id"],
-                    css: "#main-title { font-size: 24px; color: blue; }"
+                    css: "#main-title { color: #059669; font-weight: bold; }"
                 },
                 {
                     title: "后代选择器",
@@ -152,7 +181,7 @@
                     description: "选择所有在 <code>&lt;div&gt;</code> 内部的 <code>&lt;p&gt;</code>（任意层级后代）",
                     exampleHTML: '<div><p>后代段落</p><span><p>深层后代</p></span></div><p>外部段落</p>',
                     tags: ["组合选择器", "后代"],
-                    css: "div p { color: green; font-style: italic; }"
+                    css: "div p { color: #059669; background-color: #ecfdf5; }"
                 },
                 {
                     title: "子选择器",
@@ -160,7 +189,7 @@
                     description: "仅选择 <code>&lt;div&gt;</code> 的直接子元素 <code>&lt;p&gt;</code>",
                     exampleHTML: '<div><p>直接子段落</p><span><p>孙子段落（不会变色）</p></span></div>',
                     tags: ["组合选择器", "子元素"],
-                    css: "div > p { font-weight: bold; color: #d35400; }"
+                    css: "div > p { color: #059669; font-weight: bold; background-color: #d1fae5; }"
                 },
                 {
                     title: "属性选择器",
@@ -168,7 +197,7 @@
                     description: "选择 <code>href</code> 属性包含 <code>example</code> 的 <code>&lt;a&gt;</code> 标签",
                     exampleHTML: '<a href="https://example.com">Example 链接</a><a href="/local">本地链接</a>',
                     tags: ["属性选择器"],
-                    css: 'a[href*="example"] { color: purple; text-decoration: underline; }'
+                    css: 'a[href*="example"] { color: #059669; font-weight: bold; }'
                 },
                 {
                     title: "伪类选择器 (:hover)",
@@ -176,7 +205,7 @@
                     description: "鼠标悬停时的按钮样式",
                     exampleHTML: '<button>悬停我试试</button>',
                     tags: ["伪类", "交互"],
-                    css: "button:hover { background-color: orange; color: white; }"
+                    css: "button { padding: 4px 8px; background: #f9fafb; border: 1px solid #d1d5db; border-radius: 4px; cursor: pointer; } button:hover { background-color: #059669; color: white; }"
                 },
                 {
                     title: "结构伪类 (:first-child)",
@@ -184,7 +213,7 @@
                     description: "选择作为父元素第一个子元素的 <code>&lt;p&gt;</code>",
                     exampleHTML: '<div><p>第一个（变粗）</p><p>第二个</p></div><div><span>非p</span><p>这个不会变</p></div>',
                     tags: ["伪类", "结构"],
-                    css: "p:first-child { font-weight: bold; }"
+                    css: "p:first-child { color: #059669; font-weight: bold; background-color: #ecfdf5; }"
                 },
                 {
                     title: "通配符选择器",
@@ -192,7 +221,7 @@
                     description: "选择页面中所有元素（慎用）",
                     exampleHTML: '<p>段落</p><div>div</div><span>span</span>',
                     tags: ["全局", "通配符"],
-                    css: "* { margin: 4px; padding: 4px; border: 1px solid #ddd; font-size: 14px; }"
+                    css: "* { color: #059669; background-color: #f0f9ff; }"
                 },
                 {
                     title: "相邻兄弟选择器",
@@ -200,7 +229,7 @@
                     description: "选择紧跟在 <code>&lt;h2&gt;</code> 后的 <code>&lt;p&gt;</code> 元素",
                     exampleHTML: '<h2>标题</h2><p>紧跟的段落（会变色）</p><p>下一个段落（不变）</p>',
                     tags: ["组合选择器", "兄弟"],
-                    css: "h2 + p { color: teal; }"
+                    css: "h2 + p { color: #059669; background-color: #ecfdf5; }"
                 },
                 {
                     title: "通用兄弟选择器",
@@ -208,36 +237,42 @@
                     description: "选择 <code>&lt;h2&gt;</code> 之后所有同级的 <code>&lt;p&gt;</code> 元素",
                     exampleHTML: '<h2>标题</h2><div>中间div</div><p>第一个兄弟段落</p><p>第二个兄弟段落</p>',
                     tags: ["组合选择器", "兄弟"],
-                    css: "h2 ~ p { background-color: #e8f4f8; }"
+                    css: "h2 ~ p { color: #059669; background-color: #ecfdf5; }"
                 }
             ];
 
-            // ✨ 关键函数：将 CSS 限制在指定容器类名下
+            // 关键函数：将 CSS 限制在指定容器类名下
             function scopeCSS(css, scopeClass) {
-                // 移除注释和多余空行（简化处理）
                 return css
-                    .split(';')
-                    .filter(part => part.trim())
+                    .replace(/\/\*[\s\S]*?\*\//g, '') // 移除CSS注释
+                    .split('}')
+                    .filter(rule => rule.trim())
                     .map(rule => {
-                        const trimmed = rule.trim();
-                        if (!trimmed) return '';
-                        // 找到第一个 { 之前的部分（选择器）
-                        const match = trimmed.match(/^([^{}]+)\s*{\s*(.*)\s*}$/);
-                        if (match) {
-                            let selectors = match[1].trim();
-                            const styles = match[2].trim();
-                            // 为每个选择器添加作用域前缀
-                            const scopedSelectors = selectors
-                                .split(',')
-                                .map(sel => `${scopeClass} ${sel.trim()}`)
-                                .join(', ');
-                            return `${scopedSelectors} { ${styles}; }`;
-                        }
-                        return rule + ';';
+                        const parts = rule.split('{');
+                        if (parts.length !== 2) return '';
+
+                        let selectors = parts[0].trim();
+                        const styles = parts[1].trim();
+
+                        // 为每个选择器添加作用域前缀
+                        const scopedSelectors = selectors
+                            .split(',')
+                            .map(sel => {
+                                const trimmedSel = sel.trim();
+                                // 处理伪类选择器
+                                if (trimmedSel.includes(':')) {
+                                    const pseudoIndex = trimmedSel.indexOf(':');
+                                    const baseSelector = trimmedSel.substring(0, pseudoIndex);
+                                    const pseudoPart = trimmedSel.substring(pseudoIndex);
+                                    return `${scopeClass} ${baseSelector}${pseudoPart}`;
+                                }
+                                return `${scopeClass} ${trimmedSel}`;
+                            })
+                            .join(', ');
+
+                        return `${scopedSelectors} { ${styles} }`;
                     })
-                    .join('\n')
-                    .replace(/\s+/g, ' ')
-                    .replace(/;}/g, '}');
+                    .join('\n');
             }
 
             function renderSelectorTable() {
@@ -252,24 +287,25 @@
                     exampleDiv.className = `example-container example-${index}`;
                     exampleDiv.innerHTML = item.exampleHTML;
 
+                    // 创建隔离样式并添加到示例容器
                     const style = document.createElement('style');
                     style.textContent = scopedCSS;
-                    document.head.appendChild(style); // 全局 style，但内容已作用域化
+                    exampleDiv.appendChild(style);
 
                     const tagsHtml = item.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
 
                     const card = document.createElement('div');
                     card.className = 'selector-card';
                     card.innerHTML = `
-          <div class="selector-header">
-            <div class="selector-title">${item.title}</div>
-            <button class="copy-btn" data-selector="${item.selector}">📋 复制选择器</button>
-          </div>
-          <div class="selector-code">${item.selector}</div>
-          <div class="selector-desc">${item.description}</div>
-          ${exampleDiv.outerHTML}
-          <div class="tags">${tagsHtml}</div>
-        `;
+                    <div class="selector-header">
+                        <div class="selector-title">${item.title}</div>
+                        <button class="copy-btn" data-selector="${item.selector}">复制选择器</button>
+                    </div>
+                    <div class="selector-code">${item.selector}</div>
+                    <div class="selector-desc">${item.description}</div>
+                    ${exampleDiv.outerHTML}
+                    <div class="tags">${tagsHtml}</div>
+                `;
 
                     container.appendChild(card);
                 });
@@ -280,7 +316,7 @@
                         const selector = btn.getAttribute('data-selector');
                         navigator.clipboard.writeText(selector).then(() => {
                             const originalText = btn.textContent;
-                            btn.textContent = '✅ 已复制';
+                            btn.textContent = '已复制';
                             setTimeout(() => btn.textContent = originalText, 1500);
                         }).catch(() => {
                             alert('复制失败，请手动复制');
